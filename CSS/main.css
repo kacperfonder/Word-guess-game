@@ -7,4 +7,23 @@ body {
     display: flex;
     justify-content: center;
 }
+.letters {
+
+text-align:center;
+}
+.letter {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    font-size: 25px;
+    color: aquamarine;
+    text-align: center;
+    justify-content: center;
+    border: 1px solid black;
+}
+button.button,
+input[type=button].button {
+    display: block;
+    background: #f28282
+} 
 
