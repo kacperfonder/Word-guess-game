@@ -1,8 +1,8 @@
 const game = {
     lives: 8,
     currSentence: '',
-    currLetter: '',
-    sentences: ['Im a Pickle', 'password', 'herkules', 'terminator'],
+    currSplitedSentense: '',
+    sentences: ['Pickle','password','herkules','terminator'],
    
 
     eleSentence: document.querySelector('.sentence'),
@@ -31,8 +31,24 @@ const game = {
     },
     showLives () {
         this.eleLives.innerHTML = this.lives;
-       
          
+    },
+    randomSentence () {
+        this.currSentence = this.sentences[Math.floor(Math.random()*this.sentences.length)];
+        console.log(this.currSentence);
+        
+        this.currSplitedSentense = this.currSentence.split('');
+        console.log(this.currSplitedSentense);
+        
+        let splitedWord = this.currSplitedSentense;
+        splitedWord.forEach(e => {
+            const box = document.createElement('div');
+            box.classList.add('letter-box');
+            if (splitedWord[e] === ' ') {
+                div.classList.add('space-btw-letter')
+            }
+            this.eleSentence.appendChild(box);
+        })
     },
     
     startGameBtn () {
@@ -46,8 +62,10 @@ const game = {
         this.btnsOnClick();
     }
 };
+    game.gameBoard();
+
 document.querySelector('.game-start-btn').addEventListener('click', function() {
-    game.gameBoard(); 
+    game.startGameBtn(); 
 });
 
 
