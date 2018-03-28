@@ -9,7 +9,7 @@ const game = {
     eleLives: document.querySelector('.lives'),
     eleLetters: document.querySelector('.letters'),
  
-    generateButtons = () => {
+    generateButtons () {
         const alphabet = ['a','b','c','d','e','f','g','h','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
     
         let self = this;
@@ -18,18 +18,28 @@ const game = {
             button.classList.add('letter');
             button.type = 'button'
             button.innerHTML = letter;
-
+            button.dataset.letter = letter;
             self.eleLetters.appendChild(button)
         });
     },
+    
+    btnsOnClick () {
+        this.eleLetters.addEventListener('click', function(e) {
+                const letter = e.target.dataset.letter;
+                e.target.disabled = true;
+                console.log(letter);
+        });
+    },
+
+
     gameBoard () {
         this.generateButtons();
+        this.btnsOnClick();
     }
 };
 
 game.gameBoard();
 
-document.querySelector('.game-start').addEventListener('click', function() {
-    game.startGame();
-});
+
+
 

@@ -16,10 +16,11 @@ text-align:center;
     height: 40px;
     cursor: pointer;
     font-size: 25px;
-    color: aquamarine;
+    color: red;
     text-align: center;
     justify-content: center;
     border: 1px solid black;
+    
 }
 button.button,
 input[type=button].button {
