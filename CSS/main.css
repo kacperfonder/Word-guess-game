@@ -10,7 +10,7 @@ body {
     
 }
 .letters {
-
+text-transform: uppercase;
 text-align:center;
 }
 .letter {
@@ -47,6 +47,10 @@ input[type=button].button {
     align-items: center;
     font-size: 25px;
     margin: 10px 20px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    text-transform: uppercase;
 }
 .space-btw-letter {
     border: 0;
