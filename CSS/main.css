@@ -20,7 +20,7 @@ text-align:center;
     text-align: center;
     justify-content: center;
     border: 1px solid black;
-    
+    display: inline-block;
 }
 button.button,
 input[type=button].button {

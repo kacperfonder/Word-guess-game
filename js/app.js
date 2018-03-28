@@ -1,5 +1,5 @@
 const game = {
-    lives: 10,
+    lives: 8,
     currSentence: '',
     currLetter: '',
     sentences: ['Im a Pickle', 'password', 'herkules', 'terminator'],
@@ -18,27 +18,34 @@ const game = {
             button.classList.add('letter');
             button.type = 'button'
             button.innerHTML = letter;
-            button.dataset.letter = letter;
+            // button.dataset.letter = letter;
             self.eleLetters.appendChild(button)
         });
     },
-    
+
     btnsOnClick () {
         this.eleLetters.addEventListener('click', function(e) {
-                const letter = e.target.dataset.letter;
+                // const letter = e.target.dataset.letter;
+                const letter = e.target.innerHTML
                 e.target.disabled = true;
                 console.log(letter);
         });
     },
-
+    
+    startGameBtn () {
+        this.lives = 8;
+        this.randomSentence();
+        this.showLives();
+    },
 
     gameBoard () {
         this.generateButtons();
         this.btnsOnClick();
     }
 };
-
-game.gameBoard();
+document.querySelector('.game-start-btn').addEventListener('click', function() {
+    game.gameBoard(); 
+});
 
 
 
