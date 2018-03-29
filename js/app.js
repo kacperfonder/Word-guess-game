@@ -1,8 +1,8 @@
 const game = {
-    lives: 8,
+    lives: 10,
     currSentence: '',
     currSplitedSentense: '',
-    sentences: ['pickle','password','herkules','terminator','andrew','monkey',],
+    sentences: ['pickle','password','herkules','terminator','andrew','monkey','television', 'internet','wonderwoman','apple', "pizza", "meat", "rice", "cake", "sandwich", "bean",'banana','keyboard', "variable", "scope", "hoisting", "method", "prototype", "object", "boolean", "number", "string", "undefined","hiv",'hallucinations','gorilla','helicopter','mountain','horse','chocolate','serpent',"alien", "dirty", "gladiator", "nemo", "jaws"],
     correctLetter: [],
     incorrectLetters: [],
 
@@ -110,7 +110,7 @@ const game = {
     },
     
     startGameBtn () {
-        this.lives = 8;
+        this.lives = 10;
         this.randomSentence();
         this.showLives();
         this.buttonON();

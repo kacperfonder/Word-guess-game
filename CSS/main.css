@@ -26,11 +26,12 @@ text-transform: uppercase;
 text-align:center;
 display: inline-block;
 }
+
 .letter {
     font-size:40px;
     border:1px solid #A3A122;
     background-color:#D5D344;
-    box-shadow:0 3px 5px 0 rgba(0,0,0,0.4);
+    box-shadow:0 5px 7px 0 rgba(0,0,0,0.4);
     border-radius:5%;
     height:50px;
     width:70px;
@@ -38,6 +39,7 @@ display: inline-block;
     cursor:pointer;
     outline:0;
     color:mistyrose;
+    display: inline-block;
 }
 
 .lives {
@@ -50,9 +52,9 @@ display: inline-block;
     display: inline-block;
     position: absolute;
     top: 170px;
-    left: 900px;
-
+    left: 1300px;
 }
+
 .letter-box {
     text-align: center;
     justify-content: center;
@@ -90,4 +92,17 @@ button:hover {
 }
 button:disabled {
     background-color: grey;
+}
+.game-start-btn {
+    font-size:40px;
+    color: #ffffff;
+    border:1px solid #A3A122;
+    background-color:#D5D344;
+    box-shadow:0 10px 15px 0 rgba(0,0,0,0.4);
+    border-radius:5%;
+    position: absolute;
+    left: 50px;
+    width: 400px;
+    height: 70px;
+    
 }
