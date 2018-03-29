@@ -2,7 +2,7 @@ const game = {
     lives: 10,
     currSentence: '',
     currSplitedSentense: '',
-    sentences: ['pickle','password','herkules','terminator','andrew','monkey','television', 'internet','wonderwoman','apple', "pizza", "meat", "rice", "cake", "sandwich", "bean",'banana','keyboard', "variable", "scope", "hoisting", "method", "prototype", "object", "boolean", "number", "string", "undefined","hiv",'hallucinations','gorilla','helicopter','mountain','horse','chocolate','serpent',"alien", "dirty", "gladiator", "nemo", "jaws"],
+    sentences: ['pickle','password','herkules','terminator','andrew','monkey','television','basketball','soccer','baseball','tennis','football','boxing','dragon','magic','bowling', 'internet','wonderwoman','apple', "pizza", "meat", "rice", "cake", "sandwich", "bean",'banana','keyboard', "variable", "scope", "hoisting", "method", "prototype", "object", "boolean", "number", "string", "undefined","hiv",'hallucinations','gorilla','helicopter','mountain','horse','chocolate','serpent',"alien", "dirty", "gladiator", "nemo", "jaws"],
     correctLetter: [],
     incorrectLetters: [],
 
