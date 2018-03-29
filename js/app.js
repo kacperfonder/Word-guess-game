@@ -3,6 +3,7 @@ const game = {
     currSentence: '',
     currSplitedSentense: '',
     sentences: ['pickle','password','herkules','terminator','andrew','monkey',],
+    word: [],
    
     eleSentence: document.querySelector('.sentence'),
     eleLives: document.querySelector('.lives'),
@@ -36,11 +37,17 @@ const game = {
             for (let i=0; i<this.currSentence.length; i++) {
                 if (this.currSentence[i] === e) {
                     this.eleSentence.querySelectorAll('.letter-box')[i].innerHTML = e; 
-
+                    this.word.push(e)
+                    console.log(this.word);
+                    
+                if (this.word.length === this.currSentence.length) {
+                    this.eleLives.innerHTML = "YOU WON";
+                    console.log("victory");
                 }
             }
         }
-    },
+    }
+},
   
 
     showLives () {
