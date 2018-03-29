@@ -5,12 +5,14 @@ const game = {
     sentences: ['pickle','password','herkules','terminator','andrew','monkey',],
     correctLetter: [],
     incorrectLetters: [],
+
     eleSentence: document.querySelector('.sentence'),
     eleLives: document.querySelector('.lives'),
     eleLetters: document.querySelector('.letters'),
+    eleText: document.querySelector('.final-text'),
  
     generateButtons () {
-        const alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+        const alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
         let self = this;
         alphabet.forEach(letter => {
             const button = document.createElement('button');
@@ -23,11 +25,11 @@ const game = {
     
     btnsOnClick () {
         let self = this    
-
         this.eleLetters.addEventListener('click', function(e) {  
             const letter = e.target.innerHTML
             self.checkLetter(letter);
             e.target.disabled = true;
+            
         });
     },
 
@@ -36,38 +38,27 @@ const game = {
             this.incorrectLetters.push(e);
             this.lives--;
             this.eleLives.innerHTML--;
-            console.log(this.incorrectLetters);
-            console.log(this.lives);
         } 
         if (this.lives === 0) {
-            console.log("gameOver");
-            this.eleLives.innerHTML = "YOU LOOSE";
-            // this.gameOver();
-        
+            this.gameOver();
+         
         }
     
         if (this.currSentence.indexOf(e) !== -1) { 
             for (let i=0; i<this.currSentence.length; i++) {
                 if (this.currSentence[i] === e) {
                     this.eleSentence.querySelectorAll('.letter-box')[i].innerHTML = e; 
-                    this.correctLetter.push(e)
-                    console.log(this.correctLetter);
+                    this.correctLetter.push(e)                 
                 } 
                 if (this.correctLetter.length === this.currSentence.length) {
-                    this.eleLives.innerHTML = "YOU WON";
-                    // this.gameComplete();
-                    console.log("victory");
+                    this.gameComplete();
+                  
                 }
-            
             }
-
         }
     },
   
-    showLives () {
-        this.eleLives.innerHTML = this.lives;
-    },
-
+   
     randomSentence () {
         this.currSentence = this.sentences[Math.floor(Math.random()*this.sentences.length)];
         console.log(this.currSentence);
@@ -87,16 +78,45 @@ const game = {
             this.eleSentence.appendChild(box);
         })
     },
+    showLives () {
+        this.eleLives.innerHTML = this.lives;
+    },
+    buttonON () {
+        const buttons = this.eleLetters.querySelectorAll('.letter');
+        buttons.forEach(e => {
+            e.disabled = false;
+        })
+    },
+    buttonOFF () {
+        const buttons = this.eleLetters.querySelectorAll('.letter');
+        buttons.forEach(e => {
+            e.disabled = true;
+        })
+    },
+
+    gameComplete () {
+        this.eleText.innerHTML = "YOU WIN, GRATULATION!" + this.currSentence;
+        this.buttonOFF();
+        
+    },
+
+    gameOver () {
+        this.eleText.innerHTML = "YOU LOOSE, THE SENTENCE WAS: " + this.currSentence;
+        this.buttonOFF();
+    },
     
     startGameBtn () {
         this.lives = 5;
         this.randomSentence();
         this.showLives();
+        this.buttonON();
+        this.eleText.innerHTML = '';
     },
 
     gameBoard () {
         this.generateButtons();
         this.btnsOnClick();
+        this.buttonOFF();
     }
 };
 
