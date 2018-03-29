@@ -1,10 +1,10 @@
 const game = {
-    lives: 8,
+    lives: 5,
     currSentence: '',
     currSplitedSentense: '',
     sentences: ['pickle','password','herkules','terminator','andrew','monkey',],
-    word: [],
-   
+    correctLetter: [],
+    incorrectLetters: [],
     eleSentence: document.querySelector('.sentence'),
     eleLives: document.querySelector('.lives'),
     eleLetters: document.querySelector('.letters'),
@@ -28,28 +28,42 @@ const game = {
             const letter = e.target.innerHTML
             self.checkLetter(letter);
             e.target.disabled = true;
-            console.log(letter);
         });
     },
 
-    checkLetter (e) { 
+    checkLetter (e) {
+        if(this.currSentence.indexOf(e) === -1){
+            this.incorrectLetters.push(e);
+            this.lives--;
+            this.eleLives.innerHTML--;
+            console.log(this.incorrectLetters);
+            console.log(this.lives);
+        } 
+        if (this.lives === 0) {
+            console.log("gameOver");
+            this.eleLives.innerHTML = "YOU LOOSE";
+            // this.gameOver();
+        
+        }
+    
         if (this.currSentence.indexOf(e) !== -1) { 
             for (let i=0; i<this.currSentence.length; i++) {
                 if (this.currSentence[i] === e) {
                     this.eleSentence.querySelectorAll('.letter-box')[i].innerHTML = e; 
-                    this.word.push(e)
-                    console.log(this.word);
-                    
-                if (this.word.length === this.currSentence.length) {
+                    this.correctLetter.push(e)
+                    console.log(this.correctLetter);
+                } 
+                if (this.correctLetter.length === this.currSentence.length) {
                     this.eleLives.innerHTML = "YOU WON";
+                    // this.gameComplete();
                     console.log("victory");
                 }
+            
             }
-        }
-    }
-},
-  
 
+        }
+    },
+  
     showLives () {
         this.eleLives.innerHTML = this.lives;
     },
@@ -75,7 +89,7 @@ const game = {
     },
     
     startGameBtn () {
-        this.lives = 8;
+        this.lives = 5;
         this.randomSentence();
         this.showLives();
     },
