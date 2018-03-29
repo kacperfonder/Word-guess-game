@@ -1,5 +1,5 @@
 const game = {
-    lives: 5,
+    lives: 8,
     currSentence: '',
     currSplitedSentense: '',
     sentences: ['pickle','password','herkules','terminator','andrew','monkey',],
@@ -18,7 +18,7 @@ const game = {
             const button = document.createElement('button');
             button.classList.add('letter');
             button.type = 'button'
-            button.innerHTML = letter;
+            button.innerHTML = letter
             self.eleLetters.appendChild(button)
         });
     },
@@ -32,41 +32,14 @@ const game = {
             
         });
     },
-
-    checkLetter (e) {
-        if(this.currSentence.indexOf(e) === -1){
-            this.incorrectLetters.push(e);
-            this.lives--;
-            this.eleLives.innerHTML--;
-        } 
-        if (this.lives === 0) {
-            this.gameOver();
-         
-        }
-    
-        if (this.currSentence.indexOf(e) !== -1) { 
-            for (let i=0; i<this.currSentence.length; i++) {
-                if (this.currSentence[i] === e) {
-                    this.eleSentence.querySelectorAll('.letter-box')[i].innerHTML = e; 
-                    this.correctLetter.push(e)                 
-                } 
-                if (this.correctLetter.length === this.currSentence.length) {
-                    this.gameComplete();
-                  
-                }
-            }
-        }
-    },
-  
-   
     randomSentence () {
         this.currSentence = this.sentences[Math.floor(Math.random()*this.sentences.length)];
         console.log(this.currSentence);
 
         this.currSplitedSentense = this.currSentence.split('')
         console.log(this.currSplitedSentense);
-        
         this.eleSentence.innerHTML = '';
+       
         
         let splitedWord = this.currSplitedSentense
         splitedWord.forEach(e => {
@@ -78,8 +51,39 @@ const game = {
             this.eleSentence.appendChild(box);
         })
     },
+
+
+    checkLetter (e) {
+        if(this.currSentence.indexOf(e) === -1){
+            this.incorrectLetters.push(e);
+            this.lives--;
+            this.eleLives.innerHTML--;
+            console.log(this.incorrectLetters);
+            
+        } 
+        if (this.lives === 0) {
+            this.gameOver();
+         
+        }
+    
+        if (this.currSentence.indexOf(e) !== -1) { 
+            for (let i=0; i<this.currSentence.length; i++) {
+                if (this.currSentence[i] === e) {
+                    this.eleSentence.querySelectorAll('.letter-box')[i].innerHTML = e; 
+                    this.correctLetter.push(e) 
+                    console.log(this.correctLetter);            
+                } 
+                if (this.correctLetter.length === this.currSentence.length) {
+                    this.gameComplete();
+                  
+                }
+            }
+        }
+    },
+  
+    
     showLives () {
-        this.eleLives.innerHTML = this.lives;
+        this.eleLives.innerHTML =   this.lives;
     },
     buttonON () {
         const buttons = this.eleLetters.querySelectorAll('.letter');
@@ -95,22 +99,24 @@ const game = {
     },
 
     gameComplete () {
-        this.eleText.innerHTML = "YOU WIN, GRATULATION!" + this.currSentence;
+        this.eleText.innerHTML = "YOU WIN, GRATULATION!";
         this.buttonOFF();
         
     },
 
     gameOver () {
-        this.eleText.innerHTML = "YOU LOOSE, THE SENTENCE WAS: " + this.currSentence;
+        this.eleText.innerHTML = "YOU LOOSE, THE SENTENCE WAS: " + this.currSentence.toUpperCase();
         this.buttonOFF();
     },
     
     startGameBtn () {
-        this.lives = 5;
+        this.lives = 8;
         this.randomSentence();
         this.showLives();
         this.buttonON();
         this.eleText.innerHTML = '';
+        this.correctLetter = [];
+        this.incorrectLetters = [];
     },
 
     gameBoard () {

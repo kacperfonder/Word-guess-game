@@ -1,60 +1,93 @@
 * {
     box-sizing: border-box;
 }
+html {
+    height: 100%;
+    overflow: hidden;}
 
 body {
-    background: beige;
+    background: linear-gradient(45deg, rgba(74,20,140,1) 0%,rgba(244,67,54,1) 100%);
     display: flex;
     justify-content: center;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    
+    align-items: center;
+    background-size: 100%;
+    color: #ffffff;
 }
+h1 {
+    margin: 0 0 150px 100px;
+    font-family: 'Pacifico', cursive;
+    font-size: 100px;
+    color: #ffffff;
+    transform: rotate(-10deg);
+}
+
 .letters {
 text-transform: uppercase;
 text-align:center;
+display: inline-block;
 }
 .letter {
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-    font-size: 25px;
-    color: red;
-    text-align: center;
-    justify-content: center;
-    border: 1px solid black;
-    display: inline-block;
+    font-size:40px;
+    border:1px solid #A3A122;
+    background-color:#D5D344;
+    box-shadow:0 3px 5px 0 rgba(0,0,0,0.4);
+    border-radius:5%;
+    height:50px;
+    width:70px;
+    margin:5px;
+    cursor:pointer;
+    outline:0;
+    color:mistyrose;
 }
-button.button,
-input[type=button].button {
-    display: block;
-    background: #f28282
-} 
+
 .lives {
-    font-size: 25px;
+    font-family: 'Pacifico', cursive;
+    font-size: 50px;
     font-weight: 700;
     text-align: center;
-    color: blue;
-    border: 1px solid black;
-    border-radius: 50%;
-    width: 50px;
+    width: 150px;
     height: 50px;
+    display: inline-block;
+    position: absolute;
+    top: 170px;
+    left: 900px;
 
 }
 .letter-box {
-    width: 50px;
-    height: 50px;
-    border: 1px solid black;
-    align-items: center;
-    font-size: 25px;
-    margin: 10px 20px;
-    display: flex;
     text-align: center;
     justify-content: center;
-    text-transform: uppercase;
+    width: 50px;
+    border-bottom: 4px solid #ffffff;
+    /* border-radius: 5px; */
+    font-size: 50px;
+    margin: 10px 20px;
+    display: flex;
+
 }
 .space-btw-letter {
     border: 0;
 }
+.final-text {
+    font-size: 25px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
 .sentence {
+    margin-bottom: 70px;
+    font-family: 'Open Sans', cursive;
+    text-transform: uppercase;
     display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+button {
+    text-transform: uppercase;
+}
+button:hover {
+    box-shadow:0 1px 5px 0 rgba(0,0,0,0.4);
+    background-color:mistyrose;
+    color:#D5D344;
+}
+button:disabled {
+    background-color: grey;
 }
