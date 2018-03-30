@@ -12,9 +12,10 @@ body {
     align-items: center;
     background-size: 100%;
     color: #ffffff;
+    width: 100vw;
 }
-div {
-    display: block;
+.game {
+    width: 100%
 }
 
 h1 {
@@ -28,7 +29,7 @@ h1 {
 text-transform: uppercase;
 text-align:center;
 display: inline-block;
-
+margin: 0 5px 0 5px;
 }
 
 .letter {
@@ -78,12 +79,14 @@ display: inline-block;
 }
 .sentence {
     margin-bottom: 70px;
+ 
     font-family: 'Open Sans', cursive;
     text-transform: uppercase;
     display: flex;
     align-items: center;
     text-align: center;
     justify-content: center;
+ 
 }
 button {
     text-transform: uppercase;
@@ -105,6 +108,7 @@ button:disabled {
     border-radius:5%;
     position: absolute;
     left: 50px;
+    bottom: 10px;
     width: 400px;
     height: 70px;
     
