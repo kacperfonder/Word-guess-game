@@ -1,5 +1,5 @@
 const game = {
-    lives: 10,
+    lives: 12,
     currSentence: '',
     currSplitedSentense: '',
     sentences: ['pickle','password','herkules','terminator','andrew','monkey','television','basketball','soccer','baseball','tennis',
@@ -42,22 +42,22 @@ const game = {
     
     btnsOnClick () {
         let self = this    
-        this.eleLetters.addEventListener('click', function(e) {  
-            const letter = e.target.innerHTML
-            self.checkLetter(letter);
-            e.target.disabled = true;
-            
+        this.eleLetters.addEventListener('click', function(e) { 
+            if (e.target.classList.contains('letter')) {
+                const letter = e.target.innerHTML
+                self.checkLetter(letter);
+                e.target.disabled = true;
+            }
         });
     },
+
     randomSentence () {
         this.currSentence = this.sentences[Math.floor(Math.random()*this.sentences.length)];
         console.log(this.currSentence);
 
         this.currSplitedSentense = this.currSentence.split('')
-        console.log(this.currSplitedSentense);
         this.eleSentence.innerHTML = '';
        
-        
         let splitedWord = this.currSplitedSentense
         splitedWord.forEach(e => {
             const box = document.createElement('div');
@@ -68,7 +68,6 @@ const game = {
             this.eleSentence.appendChild(box);
         })
     },
-
 
     checkLetter (e) {
         if(this.currSentence.indexOf(e) === -1){
@@ -87,8 +86,7 @@ const game = {
             for (let i=0; i<this.currSentence.length; i++) {
                 if (this.currSentence[i] === e) {
                     this.eleSentence.querySelectorAll('.letter-box')[i].innerHTML = e; 
-                    this.correctLetter.push(e) 
-                    console.log(this.correctLetter);            
+                    this.correctLetter.push(e)          
                 } 
                 if (this.correctLetter.length === this.currSentence.length) {
                     this.gameComplete();
@@ -100,7 +98,7 @@ const game = {
   
     
     showLives () {
-        this.eleLives.innerHTML =   this.lives;
+        this.eleLives.innerHTML = this.lives;
     },
     buttonON () {
         const buttons = this.eleLetters.querySelectorAll('.letter');
@@ -127,11 +125,11 @@ const game = {
     },
     
     startGameBtn () {
-        this.lives = 10;
+        this.lives = 12;
         this.randomSentence();
         this.showLives();
         this.buttonON();
-        this.eleText.innerHTML = '';
+        this.eleText.innerHTML = ' ';
         this.correctLetter = [];
         this.incorrectLetters = [];
     },
